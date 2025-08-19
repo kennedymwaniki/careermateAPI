@@ -1,0 +1,17 @@
+services:
+  careermatedb:
+    image: postgres:16-alpine
+    container_name: careermatedb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_DB=careermate
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+    driver: local

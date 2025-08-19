@@ -1,0 +1,398 @@
+### Variables
+@baseUrl = http://localhost:8000
+@authToken = your_jwt_token_here
+
+### 1. Create User 1
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "email": "john.doe@example.com",
+  "password": "password123"
+}
+
+### 2. Create User 2
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "email": "jane.smith@example.com",
+  "password": "securepass456"
+}
+
+### 3. Create User 3
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "email": "mike.johnson@example.com",
+  "password": "mypassword789"
+}
+
+### Login User 1 (to get auth token)
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "john.doe@example.com",
+  "password": "password123"
+}
+
+### Create Complete Profile for User 1 (Full Stack Developer)
+POST {{baseUrl}}/profile
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "fullname": "John Doe",
+  "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150",
+  "availability": "full_time",
+  "bio": "Passionate full-stack developer with 5+ years of experience building scalable web applications. Specialized in React, Node.js, and cloud technologies. Strong background in agile development and team leadership.",
+  "skills": [
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Node.js",
+    "PostgreSQL",
+    "AWS",
+    "Docker",
+    "GraphQL",
+    "MongoDB",
+    "Express.js"
+  ],
+  "experience": [
+    {
+      "companyName": "Tech Solutions Inc.",
+      "title": "Senior Full Stack Developer",
+      "startYear": 2021,
+      "endYear": 2023,
+      "duration": "2 years 8 months"
+    },
+    {
+      "companyName": "StartupCorp",
+      "title": "Full Stack Developer",
+      "startYear": 2019,
+      "endYear": 2021,
+      "duration": "2 years 1 month"
+    },
+    {
+      "companyName": "WebDev Agency",
+      "title": "Junior Developer",
+      "startYear": 2018,
+      "endYear": 2019,
+      "duration": "1 year 3 months"
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor",
+      "coursename": "Computer Science",
+      "institution": "University of Technology",
+      "startYear": 2014,
+      "endYear": 2018
+    },
+    {
+      "degree": "Diploma",
+      "coursename": "Information Technology",
+      "institution": "Technical College",
+      "startYear": 2012,
+      "endYear": 2014
+    }
+  ],
+  "phone": "+1234567890",
+  "userId": 1
+}
+
+### Create Profile for User 2 (Data Scientist)
+POST {{baseUrl}}/profile
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "fullname": "Jane Smith",
+  "image": "https://images.unsplash.com/photo-1494790108755-2616b612b1ab?w=150",
+  "availability": "full_time",
+  "bio": "Data scientist with expertise in machine learning and statistical analysis. Experienced in building predictive models and extracting insights from complex datasets.",
+  "skills": [
+    "Python",
+    "R",
+    "Machine Learning",
+    "TensorFlow",
+    "Pandas",
+    "NumPy",
+    "SQL",
+    "Tableau",
+    "Jupyter",
+    "Scikit-learn"
+  ],
+  "experience": [
+    {
+      "companyName": "DataCorp Analytics",
+      "title": "Senior Data Scientist",
+      "startYear": 2020,
+      "endYear": 2023,
+      "duration": "3 years 4 months"
+    },
+    {
+      "companyName": "Research Institute",
+      "title": "Data Analyst",
+      "startYear": 2018,
+      "endYear": 2020,
+      "duration": "2 years"
+    }
+  ],
+  "education": [
+    {
+      "degree": "Master",
+      "coursename": "Data Science",
+      "institution": "Institute of Data Science",
+      "startYear": 2016,
+      "endYear": 2018
+    },
+    {
+      "degree": "Bachelor",
+      "coursename": "Mathematics",
+      "institution": "Mathematics University",
+      "startYear": 2012,
+      "endYear": 2016
+    }
+  ],
+  "phone": "+1234567891",
+  "userId": 2
+}
+
+### Create Profile for User 3 (UI/UX Designer)
+POST {{baseUrl}}/profile
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "fullname": "Mike Johnson",
+  "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150",
+  "availability": "full_time",
+  "bio": "Creative UI/UX designer passionate about creating intuitive and engaging user experiences. Skilled in design thinking, prototyping, and user research.",
+  "skills": [
+    "Figma",
+    "Adobe Creative Suite",
+    "Sketch",
+    "Prototyping",
+    "User Research",
+    "Wireframing",
+    "Design Systems",
+    "HTML/CSS",
+    "InVision",
+    "Principle"
+  ],
+  "experience": [
+    {
+      "companyName": "Design Studio Pro",
+      "title": "Senior UI/UX Designer",
+      "startYear": 2021,
+      "endYear": 2023,
+      "duration": "2 years 6 months"
+    },
+    {
+      "companyName": "Creative Agency",
+      "title": "UI Designer",
+      "startYear": 2019,
+      "endYear": 2021,
+      "duration": "1 year 8 months"
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor",
+      "coursename": "Graphic Design",
+      "institution": "Art and Design University",
+      "startYear": 2015,
+      "endYear": 2019
+    }
+  ],
+  "phone": "+1234567892",
+  "userId": 3
+}
+
+### Create Profile with Minimal Information
+POST {{baseUrl}}/profile
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "fullname": "Sarah Wilson",
+  "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150",
+  "phone": "+1234567893",
+  "userId": 4
+}
+
+### Get All Profiles
+GET {{baseUrl}}/profile
+Authorization: Bearer {{authToken}}
+
+### Get Profile by ID
+GET {{baseUrl}}/profile/1
+Authorization: Bearer {{authToken}}
+
+### Update Profile (Add more skills and experience)
+PATCH {{baseUrl}}/profile/1
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "skills": [
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Node.js",
+    "PostgreSQL",
+    "AWS",
+    "Docker",
+    "GraphQL",
+    "MongoDB",
+    "Express.js",
+    "Kubernetes",
+    "Redis",
+    "Microservices"
+  ],
+  "bio": "Passionate full-stack developer with 5+ years of experience building scalable web applications. Specialized in React, Node.js, and cloud technologies. Strong background in agile development, team leadership, and microservices architecture."
+}
+
+### Update Profile Education
+PATCH {{baseUrl}}/profile/2
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "education": [
+    {
+      "degree": "PhD",
+      "coursename": "Artificial Intelligence",
+      "institution": "Advanced AI Research University",
+      "startYear": 2018,
+      "endYear": 2022
+    },
+    {
+      "degree": "Master",
+      "coursename": "Data Science",
+      "institution": "Institute of Data Science",
+      "startYear": 2016,
+      "endYear": 2018
+    },
+    {
+      "degree": "Bachelor",
+      "coursename": "Mathematics",
+      "institution": "Mathematics University",
+      "startYear": 2012,
+      "endYear": 2016
+    }
+  ]
+}
+
+### Create Profile with PhD Degree
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "email": "dr.alex@example.com",
+  "password": "doctorate123"
+}
+
+###
+POST {{baseUrl}}/profile
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "fullname": "Dr. Alex Thompson",
+  "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150",
+  "bio": "Research scientist with PhD in Computer Science. Specialized in artificial intelligence and machine learning research with multiple published papers.",
+  "skills": [
+    "Python",
+    "TensorFlow",
+    "PyTorch",
+    "Deep Learning",
+    "Computer Vision",
+    "NLP",
+    "Research",
+    "Academic Writing",
+    "Statistics",
+    "MATLAB"
+  ],
+  "experience": [
+    {
+      "companyName": "AI Research Lab",
+      "title": "Principal Research Scientist",
+      "startYear": 2022,
+      "endYear": 2023,
+      "duration": "1 year 8 months"
+    },
+    {
+      "companyName": "University Research Center",
+      "title": "Postdoctoral Researcher",
+      "startYear": 2020,
+      "endYear": 2022,
+      "duration": "2 years"
+    }
+  ],
+  "education": [
+    {
+      "degree": "PhD",
+      "coursename": "Artificial Intelligence",
+      "institution": "Stanford University",
+      "startYear": 2016,
+      "endYear": 2020
+    },
+    {
+      "degree": "Master",
+      "coursename": "Data Science",
+      "institution": "MIT",
+      "startYear": 2014,
+      "endYear": 2016
+    },
+    {
+      "degree": "Bachelor",
+      "coursename": "Mathematics",
+      "institution": "UC Berkeley",
+      "startYear": 2010,
+      "endYear": 2014
+    }
+  ],
+  "phone": "+1234567895",
+  "userId": 5
+}
+
+### Delete Profile
+DELETE {{baseUrl}}/profile/3
+Authorization: Bearer {{authToken}}
+
+### Test Invalid Profile Creation (non-existent user)
+POST {{baseUrl}}/profile
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "fullname": "Invalid User",
+  "image": "https://example.com/image.jpg",
+  "phone": "+1234567890",
+  "userId": 999
+}
+
+### Test Profile with Only Required Fields
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "email": "minimal@example.com",
+  "password": "minimal123"
+}
+
+###
+POST {{baseUrl}}/profile
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "fullname": "Minimal User",
+  "image": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150",
+  "phone": "+1234567896",
+  "userId": 6
+}
